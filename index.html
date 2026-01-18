@@ -6,7 +6,7 @@ layout: null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şiirlerim</title>
+    <title>Günlüğüm</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,9 +17,9 @@ layout: null
                 <span class="heart">♥</span> <span class="heart">♥</span> <span class="heart">♥</span>
             </div>
             <p class="alt-yazi">
-                Hasretler Ayrılıkla Başlar 
+                Hasret Kimseye Kalmasın 
 				<br>
-                Yanar Yürek Sessizce Ağlar
+                 Sevdalılar Ayrılmasın
 			</p>
         </header>
 
@@ -28,7 +28,7 @@ layout: null
             <div class="poetry-card" onclick="openModal('modal-{{ forloop.index }}')">
                 <h2>{{ post.title }}</h2>
                 <p>{{ post.excerpt }}</p>
-                <span class="read-more">Devamını oku...</span>
+                <span class="read-more">!!!OKUMA!!!</span>
                 
                 <div id="modal-{{ forloop.index }}" class="poem-data" style="display:none;">
                     <div class="data-title">{{ post.title }}</div>
