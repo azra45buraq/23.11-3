@@ -1,0 +1,54 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Günlüğüm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💌 AZRA GÜNLÜĞÜ 💌</h1>
+            <div class="decorative">
+                <span class="heart">♥</span> <span class="heart">♥</span> <span class="heart">♥</span>
+            </div>
+            <p class="alt-yazi">
+                Gönüle Hasret Yazıldı 
+				<br>
+                 Sevgiye Mezar Kazıldı
+			</p>
+        </header>
+
+        <div class="poetry-grid">
+            {% for post in site.posts %}
+            <div class="poetry-card" onclick="openModal('modal-{{ forloop.index }}')">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.excerpt }}</p>
+                <span class="read-more">LÜTFEN OKU</span>
+                
+                <div id="modal-{{ forloop.index }}" class="poem-data" style="display:none;">
+                    <div class="data-title">{{ post.title }}</div>
+                    <div class="data-content">{{ post.content }}</div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+    </div>
+
+    <div class="modal" id="poemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
