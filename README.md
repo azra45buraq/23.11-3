@@ -1,0 +1,1 @@
+SENİ SEVİYORUM
