@@ -1,0 +1,257 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Georgia', serif;
+	background: linear-gradient(135deg, #1a0a1a 0%, #2d1b2d 50%, #1a0a1a 100%);
+	color: #e0b0b0;
+	min-height: 100vh;
+	padding: 40px 20px;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 60px;
+	padding: 40px 0;
+	border-bottom: 2px solid rgba(224, 176, 176, 0.3);
+}
+
+h1 {
+	font-size: 3.5em;
+	color: #ff6b9d;
+	text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+	margin-bottom: 10px;
+	font-style: italic;
+}
+
+.subtitle {
+	color: #d4a5a5;
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+.decorative {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
+	opacity: 0.6;
+}
+
+.heart {
+	color: #ff6b9d;
+	font-size: 1.5em;
+}
+
+.poetry-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 30px;
+	margin-bottom: 40px;
+}
+
+.poetry-card {
+	background: rgba(45, 27, 45, 0.8);
+	border: 2px solid #ff6b9d;
+	border-radius: 15px;
+	padding: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+	backdrop-filter: blur(10px);
+}
+
+.poetry-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+	transition: left 0.5s ease;
+}
+
+.poetry-card:hover::before {
+	left: 100%;
+}
+
+.poetry-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+	border-color: #ff9fbf;
+}
+
+.poetry-card h2 {
+	color: #ff9fbf;
+	font-size: 1.8em;
+	margin-bottom: 15px;
+	font-style: italic;
+}
+
+.poetry-card p {
+	color: #d4a5a5;
+	line-height: 1.8;
+	margin-bottom: 20px;
+	text-align: justify;
+}
+
+.read-more {
+	display: inline-block;
+	color: #ff6b9d;
+	text-decoration: none;
+	font-size: 0.95em;
+	font-style: italic;
+	transition: all 0.3s ease;
+	border-bottom: 2px solid transparent;
+}
+
+.read-more:hover {
+	border-bottom-color: #ff6b9d;
+	padding-bottom: 3px;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.modal.active {
+	display: flex;
+}
+
+.modal-content {
+	background: linear-gradient(135deg, #1a0a1a 0%, #2d1b2d 100%);
+	border: 2px solid #ff6b9d;
+	border-radius: 15px;
+	padding: 50px;
+	max-width: 700px;
+	max-height: 85vh;
+	overflow-y: auto;
+	position: relative;
+	animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+	border-bottom: 2px solid rgba(255, 107, 157, 0.3);
+	padding-bottom: 20px;
+}
+
+.modal-header h2 {
+	color: #ff6b9d;
+	font-size: 2.2em;
+	font-style: italic;
+}
+
+.close-btn {
+	color: #ff6b9d;
+	font-size: 2em;
+	cursor: pointer;
+	background: none;
+	border: none;
+	transition: all 0.3s ease;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.close-btn:hover {
+	transform: scale(1.2);
+	color: #ff9fbf;
+}
+
+.modal-body {
+	color: #e0b0b0;
+	line-height: 2;
+	text-align: justify;
+	font-size: 1.05em;
+}
+
+.modal-body p {
+	margin-bottom: 20px;
+}
+
+.modal-body strong {
+	color: #ff9fbf;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(255, 107, 157, 0.1);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff6b9d;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ff9fbf;
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2.2em;
+	}
+
+	.poetry-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.modal-content {
+		padding: 30px;
+		max-width: 90%;
+	}
+
+	.modal-header h2 {
+		font-size: 1.6em;
+	}
+}
+
+.alt-yazi {
+    color: #e0b0b0;
+    margin-top: 15px;     
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.8;       
+}
